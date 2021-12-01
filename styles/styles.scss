@@ -1,0 +1,152 @@
+@import "_definitions";
+
+* {
+    box-sizing: border-box;
+    // background-color: #EEEE9B;
+}
+
+header {
+    padding: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .input-field {
+        max-width: 750px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint(mobileonly) {
+            width: 90%;
+        }
+
+        @include breakpoint(laptop) {
+            flex-flow: row nowrap;
+        }
+        
+        .input-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+
+            .title {
+                padding: 0.5rem;
+                width: 100%;
+            }
+
+            #note-text {
+                width: 100%;
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+                resize: none;
+            }
+        }
+        .btn-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            padding: 0.5rem;
+
+            @include breakpoint(laptop) {
+                flex-flow: column nowrap;
+            }
+            
+            div {
+                padding: 0.5rem;
+                width: 7rem;
+                text-align: center;
+                border-radius: 2rem;
+                margin: 0.5rem;
+            }
+
+            .note-btn {
+                border: 1px solid green;
+                cursor: pointer;
+            }
+
+            .note-btn:hover {
+                background-color: green;
+                font-weight: bold;
+                color: white;
+            }
+            .cancel-btn {
+                border: 1px solid crimson;
+                cursor: pointer;
+            }
+
+            .cancel-btn:hover {
+                background-color: crimson;
+                font-weight: bold;
+                color: white;
+            }
+        }
+    }
+    
+}
+
+main {
+    width: 100vw;
+
+    .card-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        .card {
+            max-width: 370px;
+            height: 370px;
+            margin: 1rem;
+            border: 1px solid black;
+            padding: 1rem;
+            position: relative;
+
+            @include breakpoint(mobileonly) {
+                width: 90%;
+            }        
+            .card-title-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1.5rem;
+                
+                .fa-trash-alt {
+                    color: black;
+                    transition: 300ms;
+                    cursor: pointer;
+                }
+                .fa-trash-alt:hover {
+                    transform: rotate(10deg);
+                }
+            }
+            .card-body {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                height: 90%;
+                font-size: 1.25rem;
+                overflow-y: scroll;
+                position:relative;
+                
+            }
+            .card-body::-webkit-scrollbar {
+                display: none;
+            }
+            // .sticky-note-decor {
+            //     border-bottom: 30px black solid;
+            //     width: 0;
+            //     height: 0;
+            //     // background-color: black;
+            //     position: absolute;
+            //     bottom: 0;
+            //     right: 0;
+            // }    
+        }
+    }
+}

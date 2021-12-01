@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes app</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
     <header>
         <div class="input-field" id="input-field">
-            <input class="title" id="title" type="text" placeholder="Take a note...">
-            <textarea name="note-text" id="note-text" cols="30" rows="10" placeholder="Take a note..."></textarea>
+            <div class="input-wrapper">
+                <input class="title" id="title" type="text" placeholder="Title">
+                <textarea name="note-text" id="note-text" cols="30" rows="2" placeholder="Take a note..."></textarea>
+            </div>
+            <div class="btn-wrapper">
+                <div class="note-btn">Add sticky!</div>
+                <div class="cancel-btn">Cancel</div>
+            </div>
         </div>
     </header>
     <main>
-
+        <div class="card-container">
+            <div class="card">
+                <div class="card-title-row">
+                    <div class="card-title">My title</div>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+                <div class="card-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ab repudiandae cum repellat itaque eligendi doloribus laudantium facere accusamus delectus ex possimus temporibus exercitationem, corporis numquam enim ad similique ea! Modi quo ipsa facere exercitationem nihil fugit, ex tenetur culpa velit architecto 
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ab repudiandae cum repellat itaque eligendi doloribus laudantium facere accusamus delectus ex possimus temporibus exercitationem, corporis numquam enim ad similique ea! Modi quo ipsa facere exercitationem nihil fugit, ex tenetur culpa velit architecto 
+                </div>
+                <!-- <div class="sticky-note-decor"></div> -->
+            </div>
+             <div class="card">
+                <div class="card-title-row">
+                    <div class="card-title">My title</div>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+                <div class="card-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ab repudiandae cum repellat itaque eligendi doloribus laudantium facere accusamus delectus ex possimus temporibus exercitationem, corporis numquam enim ad similique ea! Modi quo ipsa facere exercitationem nihil fugit, ex tenetur culpa velit architecto 
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ab repudiandae cum repellat itaque eligendi doloribus laudantium facere accusamus delectus ex possimus temporibus exercitationem, corporis numquam enim ad similique ea! Modi quo ipsa facere exercitationem nihil fugit, ex tenetur culpa velit architecto 
+                </div>
+                <!-- <div class="sticky-note-decor"></div> -->
+            </div>
+        </div>
     </main>
     <footer>
 
     </footer>
 </body>
+
 </html>

@@ -1,0 +1,17 @@
+@mixin breakpoint($point) {
+    @if $point == desktop {
+      @media (min-width: 1200px) { @content ; }
+   }
+    @else if $point == laptop {
+      @media (min-width: 769px) { @content ; }
+   }
+     @else if $point == tablet {
+      @media (min-width: 376px) { @content ; }
+   }
+   @else if $point == mobileonly {
+      @media (max-width: 375px)  { @content ; }
+ 
+   }
+ }
+
+ $noteColor: #FDFD96;
