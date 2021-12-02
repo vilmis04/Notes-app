@@ -10,9 +10,6 @@ header {
     width: 100vw;
     display: flex;
     justify-content: center;
-    position: sticky;
-    top: 0;
-    left: 0;
 
     .input-field {
         width: 90%;
@@ -103,7 +100,7 @@ main {
             justify-content: center;
 
         .card {
-            max-width: 370px;
+            width: 370px;
             height: 370px;
             margin: 1rem;
             border: 1px solid black;
