@@ -47,16 +47,9 @@ function createNewNote() {
         createNote();
         document.querySelector("form").reset();
         document.querySelectorAll(".fa-trash-alt")
-                .forEach(element => element.addEventListener("click", () => {
-                    let trash = this;
-                    console.log(trash);
-                    
-                    // document.querySelector(".card-container")
-                    //         .removeChild(document.querySelector(".card"));
+                .forEach(element => element.addEventListener("click", (event) => {
+                    event.target.parentElement.parentElement.remove();
         }));
-        // document.querySelector(".fa-trash-alt").addEventListener("click", () => {
-        //     console.log(this);
-        // });
     } else {
         alert("Error 404: note not found!");
     }
