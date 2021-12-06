@@ -51,21 +51,21 @@ function createNote() {
 }
 
 function addDeleteFeature() {
-    document.querySelectorAll(".fa-trash-alt")
-            .forEach(element => element.addEventListener("click", (event) => {
-                    event.target.parentElement.parentElement.remove();
-    }));
+    const deleteIcon = document.querySelector(".fa-trash-alt");
+    deleteIcon.addEventListener("click", event => {
+            event.target.parentElement.parentElement.remove();
+    });
 }
 
 function addCompleteFeature() {
-    document.querySelectorAll(".card-body")
-            .forEach((element) => element.addEventListener("click", (event) => {
-                const classes = event.target.classList;
-                classes.contains("complete") ? 
-                            classes.remove("complete") : classes.add("complete");
-                // thisText.classList.toggle("complete");
-    }));
+    const cardBody = document.querySelector(".card-body");
+    cardBody.addEventListener("click", (event) => {
+                alert("seen");
+                event.target.classList.toggle("complete");
+    });
 }
+
+
 
 function collapseInputBox() {
         titleBox.classList.add("hidden");
@@ -80,7 +80,7 @@ function createNewNote() {
         addCompleteFeature();
         collapseInputBox();
     } else {
-        alert("Error 404: note not found!");
+        alert("Note is empty!");
     }
 }
 
@@ -90,11 +90,6 @@ addBtn.addEventListener("click", () => {
     createNewNote();
 });
 
-// textField.addEventListener("keyup", (event) => {
-//     if (event.keyCode === 13) {
-//         createNewNote();
-//     }
-// });
 textField.addEventListener("click", () => {
     titleBox.classList.remove("hidden");
     cancelBtn.classList.remove("hidden");

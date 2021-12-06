@@ -208,4 +208,12 @@ main .card-container .card .complete {
 main .card-container .card .card-body::-webkit-scrollbar {
   display: none;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
 /*# sourceMappingURL=styles.css.map */
