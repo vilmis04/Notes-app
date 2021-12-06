@@ -5,6 +5,10 @@
     // background-color: #EEEE9B;
 }
 
+body {
+    min-height: 100vh;
+}
+
 header {
     padding: 1rem;
     width: 100vw;
@@ -37,6 +41,10 @@ header {
             .title {
                 padding: 0.5rem;
                 width: 100%;
+            }
+
+            .hidden {
+                display: none;
             }
 
             #note-text {
@@ -77,6 +85,10 @@ header {
             .cancel-btn {
                 border: 1px solid crimson;
                 cursor: pointer;
+            }
+
+            .hidden {
+                display: none;
             }
 
             .cancel-btn:hover {
