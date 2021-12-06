@@ -1,5 +1,14 @@
+//definitions
+
+const textField = document.querySelector("#note-text");
+const cancelBtn = document.querySelector(".cancel-btn");
+const titleBox = document.querySelector("#title");
+
+
+// functions
+
 function getNoteText() {
-    return document.querySelector("#note-text").value;
+    return textField.value;
 }
 
 function getNoteTitle() {
@@ -17,7 +26,6 @@ function createTitleRow() {
     const newTitleRow = createElementWithClass("div", ["card-title-row"]);
     const cardTitle = createElementWithClass("div", ["card-title"]);
     const icon = createElementWithClass("i", ["fas", "fa-trash-alt"]);
-    // icon.onclick = "this.remove()";
     cardTitle.textContent = getNoteTitle();
     newTitleRow.appendChild(cardTitle);
     newTitleRow.appendChild(icon);
@@ -50,6 +58,8 @@ function createNewNote() {
                 .forEach(element => element.addEventListener("click", (event) => {
                     event.target.parentElement.parentElement.remove();
         }));
+        titleBox.classList.add("hidden");
+        cancelBtn.classList.add("hidden");
     } else {
         alert("Error 404: note not found!");
     }
@@ -58,12 +68,33 @@ function createNewNote() {
 // Event listeners
 
 document.querySelector(".note-btn").addEventListener("click", createNewNote);
-document.querySelector("#note-text").addEventListener("keyup", (event) => {
+textField.addEventListener("keyup", (event) => {
     if (event.keyCode === 13) {
         createNewNote();
     }
 });
+textField.addEventListener("click", () => {
+    titleBox.classList.remove("hidden");
+    cancelBtn.classList.remove("hidden");
+});
 
-document.querySelector(".cancel-btn").addEventListener("click", () => {
+
+
+cancelBtn.addEventListener("click", () => {
     document.querySelector("form").reset();
+    titleBox.classList.add("hidden");
+    cancelBtn.classList.add("hidden");
+});
+
+
+document.querySelector("main").addEventListener("click", () => {
+    titleBox.classList.add("hidden");
+    cancelBtn.classList.add("hidden");
+});
+
+document.querySelector("body").addEventListener("click", (event) => {
+    if (!document.querySelector(".input-wrapper").contains(event.target)) {
+        titleBox.classList.add("hidden");
+        cancelBtn.classList.add("hidden");
+    }
 });
