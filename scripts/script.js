@@ -46,14 +46,17 @@ function createNewNote() {
     if (getNoteText()) {
         createNote();
         document.querySelector("form").reset();
-//         document.querySelectorAll(".fa-trash-alt")
-//         .forEach(element => element.addEventListener("click", () => {
-//             document.querySelector(".card-container")
-//                     .removeChild(document.querySelector(".card"));
-// }));
-        document.querySelector(".fa-trash-alt").addEventListener("click", () => {
-            console.log(this);
-        });
+        document.querySelectorAll(".fa-trash-alt")
+                .forEach(element => element.addEventListener("click", () => {
+                    let trash = this;
+                    console.log(trash);
+                    
+                    // document.querySelector(".card-container")
+                    //         .removeChild(document.querySelector(".card"));
+        }));
+        // document.querySelector(".fa-trash-alt").addEventListener("click", () => {
+        //     console.log(this);
+        // });
     } else {
         alert("Error 404: note not found!");
     }
