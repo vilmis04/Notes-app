@@ -60,12 +60,9 @@ function addDeleteFeature() {
 function addCompleteFeature() {
     const cardBody = document.querySelector(".card-body");
     cardBody.addEventListener("click", (event) => {
-                alert("seen");
                 event.target.classList.toggle("complete");
     });
 }
-
-
 
 function collapseInputBox() {
         titleBox.classList.add("hidden");
@@ -88,6 +85,10 @@ function createNewNote() {
 
 addBtn.addEventListener("click", () => {
     createNewNote();
+});
+
+document.querySelector("form").addEventListener("submit", event => {
+    event.preventDefault();
 });
 
 textField.addEventListener("click", () => {

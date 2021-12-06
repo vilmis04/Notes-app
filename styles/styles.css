@@ -198,6 +198,8 @@ main .card-container .card .card-body {
   overflow-y: scroll;
   position: relative;
   word-wrap: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 main .card-container .card .complete {
