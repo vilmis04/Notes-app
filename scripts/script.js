@@ -3,7 +3,7 @@
 const textField = document.querySelector("#note-text");
 const cancelBtn = document.querySelector(".cancel-btn");
 const titleBox = document.querySelector("#title");
-
+const addBtn = document.querySelector(".note-btn");
 
 // functions
 
@@ -50,51 +50,65 @@ function createNote() {
             .insertAdjacentElement("afterbegin", newCard);
 }
 
+function addDeleteFeature() {
+    const deleteIcon = document.querySelector(".fa-trash-alt");
+    deleteIcon.addEventListener("click", event => {
+            event.target.parentElement.parentElement.remove();
+    });
+}
+
+function addCompleteFeature() {
+    const cardBody = document.querySelector(".card-body");
+    cardBody.addEventListener("click", (event) => {
+                alert("seen");
+                event.target.classList.toggle("complete");
+    });
+}
+
+
+
+function collapseInputBox() {
+        titleBox.classList.add("hidden");
+        cancelBtn.classList.add("hidden");
+}
+
 function createNewNote() {
     if (getNoteText()) {
         createNote();
         document.querySelector("form").reset();
-        document.querySelectorAll(".fa-trash-alt")
-                .forEach(element => element.addEventListener("click", (event) => {
-                    event.target.parentElement.parentElement.remove();
-        }));
-        titleBox.classList.add("hidden");
-        cancelBtn.classList.add("hidden");
+        addDeleteFeature();
+        addCompleteFeature();
+        collapseInputBox();
     } else {
-        alert("Error 404: note not found!");
+        alert("Note is empty!");
     }
 }
 
 // Event listeners
 
-document.querySelector(".note-btn").addEventListener("click", createNewNote);
-textField.addEventListener("keyup", (event) => {
-    if (event.keyCode === 13) {
-        createNewNote();
-    }
+addBtn.addEventListener("click", () => {
+    createNewNote();
 });
+
 textField.addEventListener("click", () => {
     titleBox.classList.remove("hidden");
     cancelBtn.classList.remove("hidden");
 });
 
-
-
 cancelBtn.addEventListener("click", () => {
     document.querySelector("form").reset();
-    titleBox.classList.add("hidden");
-    cancelBtn.classList.add("hidden");
+    collapseInputBox();
 });
 
 
 document.querySelector("main").addEventListener("click", () => {
-    titleBox.classList.add("hidden");
-    cancelBtn.classList.add("hidden");
+    collapseInputBox();
 });
 
 document.querySelector("body").addEventListener("click", (event) => {
     if (!document.querySelector(".input-wrapper").contains(event.target)) {
-        titleBox.classList.add("hidden");
-        cancelBtn.classList.add("hidden");
+        getNoteText() ? createNewNote() : collapseInputBox();
+        collapseInputBox();
     }
 });
+
