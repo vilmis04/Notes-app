@@ -144,8 +144,15 @@ main {
                 font-size: 1.25rem;
                 overflow-y: scroll;
                 position:relative;
+                word-wrap: break-word;
                 
             }
+
+            .complete {
+                text-decoration: line-through;
+                font-style: italic;
+            }
+
             .card-body::-webkit-scrollbar {
                 display: none;
             }

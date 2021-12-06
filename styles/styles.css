@@ -197,6 +197,12 @@ main .card-container .card .card-body {
   font-size: 1.25rem;
   overflow-y: scroll;
   position: relative;
+  word-wrap: break-word;
+}
+
+main .card-container .card .complete {
+  text-decoration: line-through;
+  font-style: italic;
 }
 
 main .card-container .card .card-body::-webkit-scrollbar {
