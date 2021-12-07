@@ -4,6 +4,7 @@ const textField = document.querySelector("#note-text");
 const cancelBtn = document.querySelector(".cancel-btn");
 const titleBox = document.querySelector("#title");
 const addBtn = document.querySelector(".note-btn");
+const myStorage = window.localStorage;
 
 // functions
 
@@ -22,28 +23,28 @@ function createElementWithClass (elementNameStr, classNameArr) {
     return elem;
 }
 
-function createTitleRow() {
+function createTitleRow(noteName) {
     const newTitleRow = createElementWithClass("div", ["card-title-row"]);
     const cardTitle = createElementWithClass("div", ["card-title"]);
     const icon = createElementWithClass("i", ["fas", "fa-trash-alt"]);
-    cardTitle.textContent = getNoteTitle();
+    cardTitle.textContent = noteName;
     newTitleRow.appendChild(cardTitle);
     newTitleRow.appendChild(icon);
     
     return newTitleRow;
 }
 
-function createCardBody() {
+function createCardBody(noteText) {
     const text = createElementWithClass("div", ["card-body"]);
-    text.textContent = getNoteText();
+    text.textContent = noteText;
 
     return text;
 }
 
-function createNote() {
+function createNote(noteName = getNoteTitle(), noteText = textField.value) {
     const newCard = createElementWithClass("div", ["card"]);
-    const newTitleRow = createTitleRow();
-    const text = createCardBody();
+    const newTitleRow = createTitleRow(noteName);
+    const text = createCardBody(noteText);
     newCard.appendChild(newTitleRow);
     newCard.appendChild(text);
     document.querySelector(".card-container")
@@ -54,18 +55,17 @@ function addDeleteFeature() {
     const deleteIcon = document.querySelector(".fa-trash-alt");
     deleteIcon.addEventListener("click", event => {
             event.target.parentElement.parentElement.remove();
+            generateStringForLocalStorage();
     });
 }
 
 function addCompleteFeature() {
     const cardBody = document.querySelector(".card-body");
     cardBody.addEventListener("click", (event) => {
-                alert("seen");
                 event.target.classList.toggle("complete");
+                generateStringForLocalStorage();
     });
 }
-
-
 
 function collapseInputBox() {
         titleBox.classList.add("hidden");
@@ -79,15 +79,49 @@ function createNewNote() {
         addDeleteFeature();
         addCompleteFeature();
         collapseInputBox();
+        generateStringForLocalStorage();
     } else {
         alert("Note is empty!");
     }
 }
 
+function generateStringForLocalStorage() {
+    let objectArr = [];
+    myStorage.clear();
+    document.querySelectorAll(".card").forEach(item => {
+        let arr = {};
+        const title = item.firstChild.firstChild.firstChild.nodeValue;
+        const body = item.lastChild.firstChild.nodeValue;
+        arr.name = title;
+        arr.text = body;
+        arr.complete = item.lastChild.classList.contains("complete");
+        objectArr.unshift(arr);
+    });
+    myStorage.setItem("notes", JSON.stringify(objectArr));
+}
+
+function restoreMyNotes() {
+    const notesArr = JSON.parse(myStorage.getItem("notes"));
+    notesArr.forEach(item => {
+        createNote(item.name, item.text);
+        if (item.complete) {
+            document.querySelector(".card").lastChild.classList.add("complete");
+        }
+        addDeleteFeature();
+        addCompleteFeature();
+    });
+}
+
 // Event listeners
+
+window.addEventListener('load', restoreMyNotes);
 
 addBtn.addEventListener("click", () => {
     createNewNote();
+});
+
+document.querySelector("form").addEventListener("submit", event => {
+    event.preventDefault();
 });
 
 textField.addEventListener("click", () => {
