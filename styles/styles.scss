@@ -115,9 +115,11 @@ main {
             width: 300px;
             height: 300px;
             margin: 1rem;
-            border: 1px solid black;
-            padding: 1rem;
+            // border: 1px solid black;
+            padding: 2rem;
             position: relative;
+            background-image: url("https://cdn.picpng.com/sticky_notes/sticky-notes-clipart-32100.png");
+            background-size: contain;
 
             @include breakpoint(mobileonly) {
                 width: 90%;
