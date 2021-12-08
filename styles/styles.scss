@@ -130,19 +130,26 @@ main {
                 align-items: center;
                 font-size: 1.5rem;
                 
-                .fa-trash-alt {
+                .fa-trash-alt,
+                .fa-pen {
                     color: black;
                     transition: 300ms;
                     cursor: pointer;
                 }
+                .fa-pen {
+                    margin-left: 5rem;
+                }
                 .fa-trash-alt:hover {
                     transform: rotate(10deg);
+                }
+                .fa-pen:hover {
+                    transform: rotate(-10deg);
                 }
             }
             .card-body {
                 margin-top: 1rem;
                 padding-top: 1rem;
-                height: 90%;
+                height: 80%;
                 font-size: 1.25rem;
                 overflow-y: scroll;
                 position:relative;
