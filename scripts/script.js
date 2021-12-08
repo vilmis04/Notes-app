@@ -61,10 +61,7 @@ function addDeleteFeature() {
 
 function addCompleteFeature() {
     const cardBody = document.querySelector(".card-body");
-    cardBody.addEventListener("click", (event) => {
-                event.target.classList.toggle("complete");
-                generateStringForLocalStorage();
-    });
+    cardBody.addEventListener("dblclick", toggleComplete);
 }
 
 function collapseInputBox() {
@@ -78,6 +75,7 @@ function createNewNote() {
         document.querySelector("form").reset();
         addDeleteFeature();
         addCompleteFeature();
+        addEditFeature();
         collapseInputBox();
         generateStringForLocalStorage();
     } else {
@@ -109,7 +107,20 @@ function restoreMyNotes() {
         }
         addDeleteFeature();
         addCompleteFeature();
+        addEditFeature();
     });
+}
+
+function addEditFeature() {
+    const titleRow = document.querySelector(".card-title");
+    titleRow.setAttribute("contenteditable", "true");
+    const textField = document.querySelector(".card-body");
+    textField.setAttribute("contenteditable", "true");
+}
+
+function toggleComplete(event) {
+    event.target.classList.toggle("complete");
+    generateStringForLocalStorage();
 }
 
 // Event listeners
@@ -143,6 +154,7 @@ document.querySelector("body").addEventListener("click", (event) => {
     if (!document.querySelector(".input-wrapper").contains(event.target)) {
         getNoteText() ? createNewNote() : collapseInputBox();
         collapseInputBox();
+        generateStringForLocalStorage();
     }
 });
 
