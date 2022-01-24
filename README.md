@@ -27,7 +27,7 @@ This is a simple note taking app. It creates notes in the form of sticky notes a
 
 ### Links
 
-- Solution URL: [Notes app](https://github.com/vilmis04/Notes-app)
+- Solution URL: [Notes app](https://vilmis04.github.io/Notes-app)
 
 ## My process
 
