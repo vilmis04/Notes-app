@@ -1,16 +1,6 @@
 # Notes-app
 
-This is a simple note taking app. It creates notes in the form of sticky notes and stores them in local storage:
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The features](#the-features)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
+This is a simple note taking app. It creates notes in the form of sticky notes and stores them in local storage. Built with Vanilla JS.
 
 ## Overview
 
